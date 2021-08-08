@@ -1,6 +1,6 @@
 /* import */
-const { body } = require("express-validor")
 require("dotenv").config();
+const { body } = require("express-validator")
 const nodemailer = require("nodemailer");
 
 /* init express router */
@@ -40,4 +40,4 @@ router.post("/", [
   res.status(200).json("Message send")
 })
 
-
+module.exports = router
