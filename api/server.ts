@@ -18,7 +18,10 @@ server.use(helmet())
 // developer
 server.use("/email", emailRouter)
 
-
+// lets user know server is up
+server.get("/", (req:Request, res:Response) => {
+    res.status(200).send(`<h1>Server is up and running</h1>`)
+})
 
 
 
