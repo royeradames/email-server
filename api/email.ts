@@ -17,7 +17,17 @@ router.post("/", [
   body("message").notEmpty().trim(),
 ], 
   //if validation fails respond with error and data of what and why it fail 
-  handleFailValidations)
+  handleFailValidations, 
+  async (req:{body: {name: string, email:string, message:string}}, res:Response, next: NextFunction) => {
+   /* get form data */
+  const {name, email, message} = req.body
+
+  
+
+  
+
+  
+})
 
 // module.exports = router
 export default router
