@@ -8,7 +8,8 @@ const handleFailtValidations = (req:Request, res:Response , next:NextFunction) =
     /* capture the validation resutls */
     const error_list = validationResult(req).array()
 
-    
+    /* check if there is errors */
+    const is_errors = error_list.length > 0
 
     
     
