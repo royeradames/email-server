@@ -16,7 +16,8 @@ router.post("/", [
   body("email").notEmpty().isEmail().normalizeEmail(),
   body("message").notEmpty().trim(),
 ], 
-  )
+  //if validation fails respond with error and data of what and why it fail 
+  handleFailValidations)
 
 // module.exports = router
 export default router
