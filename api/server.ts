@@ -15,7 +15,8 @@ server.use(express.json())
 // third party
 server.use(helmet())
 
-
+// developer
+server.use("/email", emailRouter)
 
 
 
