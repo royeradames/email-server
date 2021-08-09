@@ -65,7 +65,8 @@ router.post("/", [
   }
   const info = infoCapture
 
-  
+  /* response with a valid status and info of success send */
+  res.status(200).json(info)
 })
 
 // module.exports = router
