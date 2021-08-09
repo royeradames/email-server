@@ -10,7 +10,12 @@ import {Router} from "express"
 const router = Router()
 
 /* end points */
-router.post("/", 
+router.post("/", [
+  // validate incoming request data
+  body("name").notEmpty().isAlpha(),
+  body("email").notEmpty().isEmail().normalizeEmail(),
+  body("message").notEmpty().trim(),
+], 
   )
 
 // module.exports = router
