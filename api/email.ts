@@ -23,7 +23,7 @@ router.post("/", [
   const {name, email, message} = req.body
 
   /* send email */
-  // create reusable transporter object using the default SMTP transportcreate reusable transporter object using the default SMTP transport
+  // create reusable transporter object using the default SMTP transport
   let transporter
 
   const isInDevelopmentEnviroment = process.env.PORT ? false : true
@@ -50,7 +50,20 @@ router.post("/", [
   });
   }
 
-  
+  // send mail with defined transport object
+  let infoCapture
+  try {
+    infoCapture = await transporter.sendMail({
+      from: `${name} <${email}>`, // sender address
+      to: process.env.RECEIVER_EMAIL, // list of receivers
+      subject: "Contact form", 
+      text: message, // plain text body,
+      
+    });
+  } catch (error) {
+    next(error)
+  }
+  const info = infoCapture
 
   
 })
