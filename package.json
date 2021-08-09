@@ -4,9 +4,9 @@
   "description": "This gets the contact form data and uses your email of choice to send the data to your prefer email you prefer.",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js",
-    "start": "node index.js",
-    "test": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 node index.js"
+    "dev": "nodemon --exec ts-node index.ts",
+    "start": "ts-node index.ts",
+    "build": "tsc"
   },
   "keywords": [
     "email"
