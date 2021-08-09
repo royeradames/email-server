@@ -5,4 +5,10 @@ import {body} from "express-validator"
 import nodemailer from "nodemailer"
 import handleFailValidations from "../helpers/handleFailValidations"
 
+/* init express router */
+import {Router} from "express"
+const router = Router()
 
+
+// module.exports = router
+export default router
