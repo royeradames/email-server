@@ -15,7 +15,10 @@ const handleFailtValidations = (req:Request, res:Response , next:NextFunction) =
         /* resp with the list of errors */
         return res.status(404).json(error_list)
     }
-    
+    else{
+        /* no fail validation, then go to the next middleware */
+        next()
+    }
 
 }
 export default handleFailtValidations
