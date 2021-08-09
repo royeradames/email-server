@@ -12,7 +12,8 @@ const server = express()
 // application level
 server.use(express.json())
 
-
+// third party
+server.use(helmet())
 
 
 
