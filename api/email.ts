@@ -9,6 +9,9 @@ import handleFailValidations from "../helpers/handleFailValidations"
 import {Router} from "express"
 const router = Router()
 
+/* end points */
+router.post("/", 
+  )
 
 // module.exports = router
 export default router
