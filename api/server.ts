@@ -8,7 +8,9 @@ import emailRouter from "./email"
 /* Start server */
 const server = express()
 
-
+/* Middlewares */
+// application level
+server.use(express.json())
 
 
 
