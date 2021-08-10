@@ -1,2 +1,6 @@
+# libraries files
 node_modules
+# enviroment variables
 .env
+# compile typescript
+dist
