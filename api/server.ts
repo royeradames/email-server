@@ -1,9 +1,13 @@
 /*  Libraries */
-import express, {Response, Request, ErrorRequestHandler} from "express"
+import {config} from "dotenv"
+import express, {Response, Request} from "express"
 import helmet from "helmet"
 
 /* routers */
 import emailRouter from "./email"
+
+/* loads environment variables from a .env */
+config()
 
 /* Start server */
 const server = express()
@@ -22,8 +26,6 @@ server.use("/email", emailRouter)
 server.get("/", (req:Request, res:Response) => {
     res.status(200).send(`<h1>Server is up and running</h1>`)
 })
-
-
 
 // module.exports = server
 export default server
