@@ -40,7 +40,7 @@ router.post("/", [
   const mailData = {
     from: `${name} <${email}>`, // sender address
     to: process.env.RECEIVER_EMAIL, // list of receivers
-    subject: "Contact form", 
+    subject: `Contact form from ${name} at ${email}`, 
     text: `email: ${email}\nmessage: ${message}\n`, // plain text body,
     }
 
