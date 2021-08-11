@@ -10,8 +10,9 @@ const router = Router()
 
 /* end points */
 router.post("/", [
-  // validate incoming request data
-  body("name").notEmpty().isAlpha(),
+  /* validate incoming request data */
+  // ignore white space in names
+  body("name").notEmpty().isAlpha('en-US', {ignore: ' '}),
   body("email").notEmpty().isEmail().normalizeEmail(),
   body("message").notEmpty().trim(),
 ], 
