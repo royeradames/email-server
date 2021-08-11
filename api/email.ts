@@ -22,46 +22,45 @@ router.post("/", [
   const {name, email, message} = req.body
 
   /* send email */
-  // create reusable transporter object using the default SMTP transport
   let transporter
-
+  let infoCapture
   const isInDevelopmentEnviroment = process.env.PORT ? false : true
 
-  if (isInDevelopmentEnviroment) {
-  
-    transporter = nodemailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASS,
-    },
-    tls: {
-        rejectUnauthorized: false
-      },
-  });
-  } else {
-    transporter = nodemailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASS,
-    },
-  });
-  }
-
-  // send mail with defined transport object
-  let infoCapture
   try {
+    // create reusable transporter object using the default SMTP transport
+    if (isInDevelopmentEnviroment) {
+      transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
+      },
+      tls: {
+          rejectUnauthorized: false
+        },
+      });
+    } else {
+        transporter = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+          user: process.env.GMAIL_USER,
+          pass: process.env.GMAIL_PASS,
+        },
+      });
+    }
+
+    // send mail with defined transport object
     infoCapture = await transporter.sendMail({
       from: `${name} <${email}>`, // sender address
       to: process.env.RECEIVER_EMAIL, // list of receivers
       subject: "Contact form", 
-      text: message, // plain text body,
-      
+      text: `email: ${email}\nmessage: ${message}\n`, // plain text body,
     });
   } catch (error) {
     next(error)
   }
+  
+  /* info collected cannot be change */
   const info = infoCapture
 
   /* response with a valid status and info of success send */
