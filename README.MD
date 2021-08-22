@@ -26,12 +26,13 @@ any way, go ahead and vote my answer "This answer was useful. Best wishes!!!
 ## How to use?
 ### populate enviroment variables
 After you setup the sender email populate the environment variables:
-<ul>
-    <li> GMAIL_USER </li>
-    <li> GMAIL_PASS </li>
-    <li> RECEIVER_EMAIL </li>
-</ul>
+-  GMAIL_USER
+-  GMAIL_PASS
+-  RECEIVER_EMAIL
 
+#### Only one of the 2 depending on the enviroment:
+- AllOW_WEBSITE_URL
+- PRODUCTION_WEBSITE_URL
 ### endpoint
 Send a post request to "NameOfYourServerUrl/email/"
 You must send this values:
