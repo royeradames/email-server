@@ -1,7 +1,8 @@
 /*  Libraries */
 import {config} from "dotenv"
-import express, {Response, Request} from "express"
-// import helmet from "helmet"
+import express, {Response, Request, NextFunction} from "express"
+import helmet from "helmet"
+import cors from "cors"
 
 /* routers */
 import emailRouter from "./email"
@@ -17,7 +18,14 @@ const server = express()
 server.use(express.json())
 
 // third party
-// server.use(helmet())
+server.use(helmet())
+
+// setup allow origin to access this resource
+server.use(cors(
+    {
+        origin: process.env.DEVELOPMENT_WEBSITE_URL || process.env.PRODUCTION_WEBSITE_URL,
+    }
+))
 
 // developer
 server.use("/email", emailRouter)
