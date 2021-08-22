@@ -33,7 +33,7 @@ After you setup the sender email populate the environment variables:
 </ul>
 
 ### endpoint
-Send a post request to "NameOfYourServerUrl/mail/"
+Send a post request to "NameOfYourServerUrl/email/"
 You must send this values:
 <ul>
     <li> name: must be only letter. Spaces are ignore. </li>
