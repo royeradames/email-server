@@ -1,7 +1,7 @@
 /*  Libraries */
 import {config} from "dotenv"
 import express, {Response, Request} from "express"
-import helmet from "helmet"
+// import helmet from "helmet"
 
 /* routers */
 import emailRouter from "./email"
@@ -17,7 +17,7 @@ const server = express()
 server.use(express.json())
 
 // third party
-server.use(helmet())
+// server.use(helmet())
 
 // developer
 server.use("/email", emailRouter)
